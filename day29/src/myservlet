@@ -1,0 +1,41 @@
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.*;
+
+@WebServlet(urlPatterns = "/myservelet")
+public class myservelet extends HttpServlet {
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("utf-8");//设置响应的字符编码，在获取流之前设置
+        resp.setContentType("text/html;characher=utf-8");//告知浏览器，请浏览器用utf8显示
+        String username= req.getParameter("username");
+        String password = req.getParameter("password");
+        String phone=req.getParameter("phone");
+        String verify=req.getParameter("verify");
+        String agree=req.getParameter("agree");
+        System.out.println(username+" "+password+" "+phone+" "+verify+" "+agree);
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useSSL=true", "root", "root")){
+                String sql="insert into user(email,password,phone) values(?,?,?)";
+                try(PreparedStatement psmt=conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)){
+                    psmt.setString(1,username);
+                    psmt.setString(2,password);
+                    psmt.setString(3,phone);
+                    int rows = psmt.executeUpdate();
+                    System.out.println("影响行数是："+rows);
+                }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+}

@@ -1,0 +1,183 @@
+1. 查找数组元素位置
+题目描述：
+找出元素 item 在给定数组 arr 中的位置
+function indexOf(arr, item) {
+}
+输出描述：
+如果数组中存在 item，则返回元素在数组中的位置，否则返回 -1
+示例：
+输入
+[ 1, 2, 3, 4 ], 3
+输出
+2
+var arr=[3,1,9,5,4,7];
+var flag=-1;
+function indexOf(arr,item){
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]===item){
+            flag=i;
+            break;
+        }
+    }
+    if(flag===-1){
+        console.log(-1);
+    }else{
+        console.log(flag);
+    }
+}
+答案：indexOf(arr,5);
+   VM75:13 3
+   undefined
+2. 数组求和
+题目描述：
+计算给定数组 arr 中所有元素的总和function sum(arr) {
+}
+输入描述：
+数组中的元素均为 Number 类型
+示例：
+输入
+[ 1, 2, 3, 4 ]
+输出
+10
+var arr=[1,2,3,4,5,6];
+function sum(arr){
+    var sum=0;
+    for(var i=0;i<arr.length;i++){
+       sum=sum+arr[i];
+    }
+    console.log(sum);
+}
+答案：
+sum(arr);
+VM110:7 21
+3. 移除数组元素
+题目描述：
+移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组
+function remove(arr, item) {
+}
+示例：
+输入
+[1, 2, 3, 4, 2], 2
+输出
+[1, 3, 4]
+var arr=[1,2,3,4,5,6];
+var j=0;
+function remove(arr,item){
+    var  new1=[];
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]!== item){
+            new1[j]=item;
+            j++;
+        }
+    }
+     console.log(new1);
+}
+remove(arr,4);
+console.log(new1);
+
+}
+4. 移除数组元素
+题目描述：
+移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，返回原有数组
+function removeWithoutCopy(arr, item) {}
+示例：
+输入
+[1, 2, 2, 3, 4, 2, 2], 2
+输出
+[1, 3, 4]
+5. 末尾追加元素
+题目描述：
+在数组 arr 末尾添加元素 item，返回数组
+function append(arr, item) {
+}
+示例：
+输入
+[1, 2, 3, 4], 10
+输出
+[1, 2, 3, 4, 10]
+6. 末尾删除元素
+题目描述：
+删除数组 arr 最后一个元素，返回数组
+function truncate(arr) {
+}
+示例：
+输入
+[1, 2, 3, 4]输出
+[1, 2, 3]
+7. 开头添加元素
+题目描述：
+在数组 arr 开头添加元素 item，返回数组
+function prepend(arr, item) {
+}
+示例：
+输入
+[1, 2, 3, 4], 10
+输出
+[10, 1, 2, 3, 4]
+8. 开头删除元素
+题目描述：
+删除数组 arr 第一个元素，返回数组
+function curtail(arr) {
+}
+示例：
+输入
+[ 1, 2, 3, 4 ]
+输出
+[ 2, 3, 4 ]
+9. 合并数组题目描述：
+合并数组 arr1 和数组 arr2，返回合并后的数组
+function concat(arr1, arr2) {
+}
+示例：
+输入
+[1, 2, 3, 4], ['a', 'b', 'c', 1]
+输出
+[1, 2, 3, 4, 'a', 'b', 'c', 1]
+10. 插入元素
+题目描述：
+在数组 arr 的 index 处添加元素 item，返回数组
+function insert(arr, item, index) {
+}
+示例：
+输入
+[1, 2, 3, 4], 'z', 2
+输出
+[1, 2, 'z', 3, 4]
+11. 计数
+题目描述：
+统计数组 arr 中值等于 item 的元素出现的次数，返回次数
+function count(arr, item) {}
+示例：
+输入
+[1, 2, 4, 4, 3, 4, 3], 4
+输出
+3
+12. 查找重复元素
+题目描述：
+找出数组 arr 中重复出现过的元素，返回重复元素的数组
+function duplicates(arr) {
+}
+示例：
+输入
+[1, 2, 4, 4, 3, 3, 1, 5, 3]
+输出
+[1, 3, 4]
+13. 求平方
+题目描述：
+为数组 arr 中的每个元素求二次方，返回数组
+function square(arr) {
+}
+示例：
+输入
+[1, 2, 3, 4]输出
+[1, 4, 9, 16]
+14. 查找数组元素位置
+题目描述：
+在数组 arr 中，查找值与 target 相等的元素出现的所有位置，返回一个下标数组
+function findAllOccurrences(arr, target) {
+}
+示例：
+输入
+[ 1, 2, 3, 4, 5, 6, 1, 7], 1
+输出
+[0, 6]

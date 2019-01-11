@@ -1,0 +1,76 @@
+<%-- Created by IntelliJ IDEA. --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+  <title>注册用户</title>
+  <script>
+    function fun1() {
+        <!--匹配邮箱格式-->
+        var pattern=/^\w+@\w+\.(com|net|org)(\.(cn|en))?$/;
+        var email = document.getElementById("email").value;
+        if(pattern.test(email)){
+            document.getElementById("e").innerText="格式正确";
+            console.log("格式正确");
+        }else{
+            document.getElementById("e").innerText="格式错误";
+            console.log("格式错误");
+        }
+    }
+    function fun2() {
+        var value = document.getElementById("pword").value;
+        var length = value.length;
+        if((length>=6) && (length<15)){
+            if(( /[0-9]*/.test(value))&&(/[a-z]*/.test(value))&&(/[A-Z]*/.test(value))){
+                console.log("密码格式正确");
+                document.getElementById("p").innerText="密码格式正确";
+            }
+        }else{
+            console.log("密码格式错误");
+            document.getElementById("p").innerText="密码格式错误";
+        }
+    }
+    function fun3() {
+        var value = document.getElementById("num").value;
+        if(/1[0-9]{10}/.test(value)){
+            console.log("手机号码格式正确")
+            document.getElementById("n").innerText="手机号码格式正确";
+        }else{
+            console.log("手机号码格式错误")
+            document.getElementById("n").innerText="手机号码格式错误";
+        }
+    }
+    var count=60;
+    function time(t) {
+      if(count!=0){
+          t.setAttribute("disabled",true);
+          t.value="重新发送（"+count+")";
+          count--;
+          setTimeout(function () {
+              time(t)
+          },1000)
+      }else{
+          t.removeAttribute("disabled");
+          count=60;
+      }
+
+    }
+  </script>
+</head>
+<body>
+  <form action="/myservelet" method="post">
+    <h1>用户注册页面</h1>
+    <br>
+    <input type="text" value="" name="username" id="email" onblur="fun1()"><span id="e">输入用户有效邮箱</span>
+    <br>
+    <input type="password" name="password" id="pword" onblur="fun2()" ><span id="p" >定义密码（要求只能包含数字，大小写字母6-15位）</span>
+    <br>
+    <input type="text" name="phone" id="num" onblur="fun3()"><span id="n">绑定手机号码</span><input type="button" name="but" value="获取验证码" onclick="time(this)">
+    <br>
+    <input type="text" name="verify">输入验证码
+    <br>
+    <input type="checkbox" checked name="agree">同意用户使用协议
+    <br>
+    <input type="reset" value="重置">   <input type="button" name="sub" onclick="submit()" value="提交">
+  </form>
+</body>
+</html>
