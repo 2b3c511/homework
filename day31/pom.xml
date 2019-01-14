@@ -5,35 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>xiamuzi</groupId>
-    <artifactId>day30</artifactId>
+    <artifactId>day31</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>day31</module>
-    </modules>
+    <packaging>war</packaging>
 
-    <!-- 打包方式 jar (对应普通java项目 ), war （对应web 项目，里面除了java类之外，还可以包含web项目相关的内容） -->
-    <packaging>pom</packaging>
-
-    <!-- 项目字符编码 -->
-    <properties>
-        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
-    </properties>
-
-    <!-- 依赖 jar -->
     <dependencies>
-        <!-- 作用范围 -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.47</version>
-        </dependency>
-        <!-- 编译需要，但运行时不需要 -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -46,16 +22,24 @@
             <version>2.2.1</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
     </dependencies>
 
-    <!-- 设置 jdk 版本-->
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -63,5 +47,4 @@
             </plugin>
         </plugins>
     </build>
-    
 </project>
